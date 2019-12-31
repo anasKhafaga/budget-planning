@@ -1,0 +1,433 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #555;
+    font-family: Open Sans;
+    position: relative;
+    height: 100vh;
+    font-weight: 400;
+}
+
+.right {
+    align-self: flex-end;
+    display: flex;
+}
+
+.red {
+    color: #FF5049 !important;
+}
+
+.red-focus:focus {
+    border: 1px solid #FF5049 !important;
+}
+
+/**********************************************
+*** TOP PART
+**********************************************/
+
+.top {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.budget {
+    position: absolute;
+    width: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.budget__title {
+    font-size: 1.125rem;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.budget__value {
+    font-weight: 300;
+    font-size: 2.875rem;
+    text-align: center;
+    margin-bottom: 1.6rem;
+    letter-spacing: 2px;
+}
+
+.budget__income,
+.budget__expenses {
+    padding: 0.75rem;
+    text-transform: uppercase;
+}
+
+.budget__income {
+    margin-bottom: 0.625rem;
+    background-color: #28B9B5;
+    display: flex;
+    justify-content: space-between;
+}
+
+.budget__expenses {
+    background-color: #FF5049;
+    display: flex;
+    justify-content: space-between;
+}
+
+.budget__income--text,
+.budget__expenses--text {
+    font-size: 0.9rem;
+    color: #444;
+    margin-top: 2px;
+}
+
+.budget__income--value,
+.budget__expenses--value {
+    letter-spacing: 1px;
+    float: left;
+}
+
+
+
+
+
+
+/**********************************************
+*** BOTTOM PART
+**********************************************/
+
+/***** FORM *****/
+.add {
+    padding: 0.875rem;
+    border-bottom: 1px solid #e7e7e7;
+    background-color: #f7f7f7;
+}
+
+.add__container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.add__type {
+    width: 3.5rem;
+    border: 1px solid #e7e7e7;
+    height: 2.75rem;
+    font-size: 1.125rem;
+    color: inherit;
+    background-color: #fff;
+    margin-right: 0.625rem;
+    font-weight: 300;
+    transition: border 0.3s;
+}
+
+.add__description,
+.add__value {
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+.add__description {
+    width: 50%;
+}
+
+.add__value {
+    width: 6.25rem;
+}
+
+.add__btn {
+    font-size: 2.2rem;
+    background: none;
+    border: none;
+    color: #28B9B5;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.1;
+    margin-left: 10px;
+}
+
+.add__btn:active {
+    transform: translateY(2px);
+}
+
+.add__type:focus,
+.add__description:focus,
+.add__value:focus {
+    outline: none;
+    border: 1px solid #28B9B5;
+}
+
+.add__btn:focus {
+    outline: none;
+}
+
+/***** LISTS *****/
+.container {
+    width: 80%;
+    margin: 3.75rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    padding: 0 3rem;
+}
+
+.income {
+    width: 45%;
+}
+
+.expenses {
+    width: 45%;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.icome__title {
+    color: #28B9B5;
+}
+
+.expenses__title {
+    color: #FF5049;
+}
+
+.item {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e7e7e7;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item:first-child {
+    border-top: 1px solid #e7e7e7;
+}
+
+.item:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.item__description {
+    align-self: flex-start;
+}
+
+.item__value {
+    align-self: flex-start;
+    transition: transform 0.3s;
+}
+
+
+
+.income .item__value,
+.income .item__delete--btn {
+    color: #28B9B5;
+}
+
+.expenses .item__value,
+.expenses .item__delete--btn {
+    color: #FF5049;
+}
+
+
+.item__delete {
+    align-self: flex-end;
+}
+
+.item__delete--btn {
+    font-size: 1.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 1;
+    display: none;
+}
+
+.item__delete--btn:focus {
+    outline: none;
+}
+
+.item__delete--btn:active {
+    transform: translateY(2px);
+}
+
+.item:hover .item__delete--btn {
+    display: block;
+}
+
+.item:hover .item__value {
+    transform: translateX(-1rem);
+}
+
+.unpaid {
+    background-color: #FFDAD9 !important;
+    cursor: pointer;
+    color: #FF5049;
+
+}
+
+.unpaid:hover .item__description {
+    font-weight: 900;
+}
+
+.foot {
+    padding: 0.8rem 3rem;
+    border-top: 1px solid #e7e7e7;
+    width: 100%;
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+}
+
+.copyright {
+    font-size: 0.9rem;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    html {
+        font-size: 18px;
+    }
+
+    .budget {
+        width: 50%;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .item__delete--btn {
+        margin-left: 0.4rem;
+    }
+
+    .item__delete--btn {
+        display: inline-block;
+    }
+
+    .item:hover .item__value {
+        transform: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (max-height: 767px) {
+    html {
+        font-size: 16px;
+    }
+
+    .item__delete--btn {
+        margin-left: 0.4rem;
+    }
+
+    .item__delete--btn {
+        display: inline-block;
+    }
+
+    .item:hover .item__value {
+        transform: none;
+    }
+
+    .top {
+        height: 80vh;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px){
+    html {
+        font-size: 14px;
+    }
+
+    .budget {
+        width: 80%;
+    }
+
+    .item__delete--btn {
+        margin-left: 0.4rem;
+    }
+
+    .item__delete--btn {
+        display: inline-block;
+    }
+
+    .item:hover .item__value {
+        transform: none;
+    }
+
+    .budget {
+        width: 80%;
+    }
+
+    .container {
+        display: block;
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .income,
+    .expenses {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .income h2,
+    .expenses h2 {
+        text-align: center;
+    }
+
+    .add__container {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .add__type {
+        margin: auto 1.25rem;
+        margin-left: 0;
+        width: 2rem;
+        font-size: 0.8rem;
+        height: 2rem;
+    }
+
+    .add__description,
+    .add__value {
+        padding: 0.3rem 0.7rem;
+    }
+
+    .add__value {
+        width: 3rem;
+    }
+
+    .foot {
+        font-size: 0.6rem;
+        padding: 0.8rem 1rem;
+    }
+    .copyright{
+        font-size: 0.7;
+    }
+}
+
+@media(max-height:450px){
+    .top{
+        height: 80vh;
+    }
+}
